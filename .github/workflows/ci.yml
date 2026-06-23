@@ -1,4 +1,4 @@
-name: Learning CI Pipeline
+name: html Pipeline
 
 on:
   push:
@@ -6,21 +6,19 @@ on:
       - main
 
 jobs:
-  learn-ci:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Download Repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Show Current Folder
-        run: pwd
-
-      - name: Show Files
+      - name: show files
         run: ls -la
+        
+      - name: read files
+        run: cat index.html
+        
+      - name: Success message
+        run: echo "All steps completed successfully!"  
+ 
 
-      - name: Show Date
-        run: date
-
-      - name: Print Success Message
-        run: echo "Abhishek's CI Pipeline is Working!"
